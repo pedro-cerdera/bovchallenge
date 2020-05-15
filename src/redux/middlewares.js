@@ -1,3 +1,5 @@
-import createSageMiddleware from 'redux-saga';
+import createSagaMiddleware from 'redux-saga';
 
-export const middlewares = [createSageMiddleware()];
+export const sagaMiddleware = createSagaMiddleware();
+
+export const middlewares = [sagaMiddleware];

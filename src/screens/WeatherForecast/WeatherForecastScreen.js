@@ -3,6 +3,7 @@ import {Text, View} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {useLocation} from '../../hooks';
 import {Actions} from '../../reducers';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import {
   DefaultSpacingContainer,
   SafeAreaContainer,
@@ -45,8 +46,9 @@ const WeatherForecastScreen = () => {
                 width: 250,
                 borderRadius: 125,
                 backgroundColor: 'green',
-              }}
-            />
+              }}>
+              <Icon name="rocket" size={30} color="#900" />
+            </View>
           </View>
           <View>
             <Text style={{fontFamily: 'Poppins-Bold'}}>

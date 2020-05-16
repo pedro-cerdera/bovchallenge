@@ -1,4 +1,3 @@
-import {Alert} from 'react-native';
 import Config from '../config/api';
 
 import _axios from 'axios';
@@ -23,7 +22,6 @@ export const request = async ({
   data = undefined,
   token = undefined,
   onUploadProgress = undefined,
-  onRequestFail = (error) => Alert.alert('Erro', error, [{title: 'OK'}]),
 }) => {
   let response = {data: {}};
   try {
@@ -43,11 +41,10 @@ export const request = async ({
       throw new Error(response.error);
     }
   } catch (e) {
-    response.error = {
+    response.data.error = {
       message: e.message,
       ...e.response,
     };
-    onRequestFail(e.message);
   } finally {
     return response;
   }

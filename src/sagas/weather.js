@@ -2,10 +2,7 @@ import {put, takeLatest, call} from 'redux-saga/effects';
 
 import {Types as WeatherTypes} from '../reducers/weather';
 import resources from '../resources';
-
-export const Types = {
-  GET_WEATHERS: '@weather/GET_WEATHERS',
-};
+import {GET_WEATHERS} from './Types';
 
 function* fetchWeathers({payload}) {
   yield put({type: WeatherTypes.WEATHER_SET_LOADING, payload: true});
@@ -24,7 +21,7 @@ function* fetchWeathers({payload}) {
 }
 
 function* getWeathers() {
-  yield takeLatest(Types.GET_WEATHERS, fetchWeathers);
+  yield takeLatest(GET_WEATHERS, fetchWeathers);
 }
 
 export default [getWeathers()];

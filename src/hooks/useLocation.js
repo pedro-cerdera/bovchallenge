@@ -1,5 +1,6 @@
 import {useCallback, useEffect, useState} from 'react';
 import RNLocation from 'react-native-location';
+import {useAppState} from './useAppState';
 
 RNLocation.configure({
   distanceFilter: 5.0,
@@ -7,6 +8,7 @@ RNLocation.configure({
 
 const useLocation = () => {
   const [coordinates, setCoordinates] = useState(null);
+  const {appState} = useAppState();
 
   const getCurrentPosition = useCallback(async () => {
     const granted = await RNLocation.requestPermission({
@@ -26,7 +28,7 @@ const useLocation = () => {
   useEffect(() => {
     getCurrentPosition();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [appState]);
 
   return {coordinates};
 };

@@ -1,7 +1,6 @@
-import {Types as WeatherSagaTypes} from '../sagas/weather';
+import {GET_WEATHERS} from '../sagas/Types';
 
 const initialState = {
-  requestDate: null,
   weathers: [],
   loading: false,
   error: null,
@@ -16,7 +15,7 @@ export const Types = {
 
 export const Actions = {
   getWeathers: (coordinates) => ({
-    type: WeatherSagaTypes.GET_WEATHERS,
+    type: GET_WEATHERS,
     payload: coordinates,
   }),
 };
